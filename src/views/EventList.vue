@@ -48,10 +48,10 @@ export default {
       totalEvents: 0 // <--- Added this to store totalEvents
     }
   },
-  beforeRouteEnter(routeTo, routeFrom, next) {
 
-    // NProgress.start()
-    EventService.getEvents(2, parseInt(routeTo.query.page) || 1)
+  //eslint-disable-next-lineno-unnsed-vars
+  beforeRouteEnter(routeTo, routeFrom, next) {
+    EventService.getEvents(3, parseInt(routeTo.query.page) || 1)
       .then((response) => {
         next((comp) => {
           comp.events = response.data
@@ -68,7 +68,7 @@ export default {
 
     beforeRouteUpdate(routeTo, routeFrom, next) {
     // NProgress.start()
-    EventService.getEvents(2, parseInt(routeTo.query.page) || 1)
+    EventService.getEvents(3, parseInt(routeTo.query.page) || 1)
       .then((response) => {
         this.events = response.data
         this.totalEvents = response.headers['x-total-count'] // <--- Store it
@@ -86,7 +86,7 @@ export default {
   computed: {
     hasNextPage() {
       // First, calculate total pages
-      let totalPages = Math.ceil(this.totalEvents / 2) // 2 is events per page
+      let totalPages = Math.ceil(this.totalEvents / 3) // 2 is events per page
 
       // Then check to see if the current page is less than the total pages.
       return this.page < totalPages
