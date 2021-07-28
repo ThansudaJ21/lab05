@@ -30,7 +30,7 @@ export default {
 }
 
 #flashMessage {
-  animation-name: yelloefade;
+  animation-name: yellowfade;
   animation-duration: 3s;
 }
 
