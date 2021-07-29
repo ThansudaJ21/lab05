@@ -54,7 +54,8 @@ const routes = [
     path: '/:catchAll(.*)',
     name: 'NotFound',
     component: NotFound
-  },{
+  },
+  {
     path: '/network-error',
     name: 'NetworkError',
     component: NetWorkError
